@@ -1,7 +1,7 @@
 {
   "pages": [
-    "pages/two/two",
     "pages/one/one",
+    "pages/two/two",
     "pages/cubic/cubic",
     "pages/ceshi/ceshi",
     "pages/index/index",

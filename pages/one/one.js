@@ -24,11 +24,8 @@ Page({
   onReady: function () {
     
 
-    var begin = 0; //睡觉时间，晚上0点
-    var end = 6*60; //起床时间，早上6点
-    
     const context = wx.createCanvasContext('firstCanvas');
-    var tim = 360; //睡觉时间段分钟数，例如：12小时=720分钟
+    var tim = 300; //睡觉时间段分钟数，例如：12小时=720分钟
     // 如果用户时间段按整分钟进行划分，一个圆将被分为24小时，也就是24*60分钟，每一分钟的度数为：360/24*60，弧度为：2*Math.PI/24*60
 
     var redDeg = tim * ((2 * Math.PI) / (24 * 60));
@@ -48,7 +45,7 @@ Page({
     })
 
     context.beginPath()
-    console.log(h)
+    // console.log(h)
     // context.moveTo(150, 150)
     context.arc(150, 150, 150, deg, Math.PI - deg, true)
     context.setFillStyle('#000');
@@ -83,19 +80,34 @@ Page({
       // deg  /  Math.PI/2 = cX? / 60
       
 
-    var cX = deg < Math.PI / 4 ? 100 * (deg / Math.PI) : 50 * (deg / Math.PI);
-    var cY = deg < Math.PI / 4 ? 300 * (deg / Math.PI) : 150 * (deg / Math.PI);
+    // var cX = deg < Math.PI / 4 ? 100 * (deg / Math.PI) : 20 * (deg / Math.PI);
+    // var cY = deg < Math.PI / 4 ? 300 * (deg / Math.PI) : 10 * (deg / Math.PI);
+    var cX = 10 * r / 100;
+    var cY;
+    console.log(deg)
+    if(tim<=720&&tim>=600){
+      cY = 60;
+      console.log(111)
+    } else if (tim<600&&tim>=400){
+      cY = 35;
+      console.log(222)
+    } else if(tim<400&&tim>=300){
+      cY = 16;
+      console.log(333)
+    }else if(tim<300&&tim>=200){
+      cY = 10;
+    }
     context.beginPath()
     context.moveTo(150, 150+h);
-    context.bezierCurveTo(150 - cX, (250 + h) - cY, (150 - r) + cX, (250 + h) - cY, 150 - r, 150 + h)
-      context.setFillStyle('blue')
+    context.bezierCurveTo(150 - cX, (150 + h) + cY, (150 - r) + cX, (150 + h) + cY, 150 - r, 150 + h)
+      context.setFillStyle('#000')
       context.fill()
     context.closePath()
 
     // // 贝塞尔曲线红色小半圆
     context.beginPath()
     context.moveTo(150, 150 + h)
-    context.bezierCurveTo(150, 135 + h, 150 + r, 135 + h, 150 + r, 150 + h)
+    context.bezierCurveTo(150 + cX, (150 + h) - cY, (150 + r) - cX, (150 + h) - cY, 150 + r, 150 + h)
     context.setFillStyle('red')
     context.fill()
     context.closePath()
