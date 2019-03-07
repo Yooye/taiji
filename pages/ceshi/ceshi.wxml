@@ -1,0 +1,8 @@
+<!--pages/ceshi/ceshi.wxml-->
+<view class='cs'>
+  <view class='box' style='transform: rotate({{deg}}deg)'>
+    <canvas class='cn' canvas-id="nCanvas" style="width:{{wh}}px; height:{{wh}}px; border:1px solid #d3d3d3; background-color:#d8d8d8"/>
+  </view>
+<canvas class='cn1'  canvas-id="myCanvas" style="width:{{whs}}px; height:{{whs}}px; border:1px solid red;"/>
+</view>
+  

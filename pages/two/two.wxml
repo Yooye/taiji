@@ -1,0 +1,10 @@
+<!--pages/one/one.wxml-->
+<view class='cont'>
+  <canvas class='big-cavs' canvas-id="firstCanvas"></canvas>
+  <!-- <view 
+  class='small-circle black-circle' 
+  style='transform:scale({{changer}},{{changer/3}});top:{{changey}}px;left:{{blackX}}px;'></view>
+  <view 
+  class='small-circle red-circle' 
+  style='transform:scale({{changer}},{{changer/3}});top:{{changey}}px;left:{{redX}}px;'></view> -->
+</view>
